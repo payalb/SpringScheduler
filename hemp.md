@@ -137,7 +137,7 @@ Spring also provides XML way of configuring the scheduled tasks – here is the 
 In this article, we understood the way to configure and use the @Scheduled annotation.
 
 
-// examples of other CRON expressions
+	// examples of other CRON expressions
 	// * "0 0 * * * *" = the top of every hour of every day.
 	// * "*/10 * * * * *" = every ten seconds.
 	// * "0 0 8-10 * * *" = 8, 9 and 10 o'clock of every day.
