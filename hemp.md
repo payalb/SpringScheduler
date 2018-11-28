@@ -144,3 +144,19 @@ In this article, we understood the way to configure and use the @Scheduled annot
 	// * "0 0/30 8-10 * * *" = 8:00, 8:30, 9:00, 9:30 and 10 o'clock every day.
 	// * "0 0 9-17 * * MON-FRI" = on the hour nine-to-five weekdays
 	// * "0 0 0 25 12 ?" = every Christmas Day at midnight
+
+
+@Scheduled(cron = "[Seconds] [Minutes] [Hours] [Day of month] [Month] [Day of week] [Year]")
+
+Please do not include the braces in your expressions (I used them to make the expression clearer).
+
+Before we can move on, we need to go through what the special characters mean.
+
+* represents all values. So, if it is used in the second field, it means every second. If it is used in the day field, it means run every day.
+? represents no specific value and can be used in either the day of month or day of week field — where using one invalidates the other. If we specify it to trigger on the 15th day of a month, then a ? will be used in the Day of week field.
+- represents an inclusive range of values. For example, 1-3 in the hours field means the hours 1, 2, and 3.
+, represents additional values. For example, putting MON,WED,SUN in the day of week field means on Monday, Wednesday, and Sunday.
+/ represents increments. For example 0/15 in the seconds field triggers every 15 seconds starting from 0 (0, 15, 3,0 and 45).
+L represents the last day of the week or month. Remember that Saturday is the end of the week in this context, so using L in the day of week field will trigger on a Saturday. This can be used in conjunction with a number in the day of month field, such as 6L to represent the last Friday of the month or an expression like L-3 denoting the third from the last day of the month. If we specify a value in the day of week field, we must use ? in the day of month field, and vice versa.
+W represents the nearest weekday of the month. For example, 15W will trigger on the 15th day of the month if it is a weekday. Otherwise, it will run on the closest weekday. This value cannot be used in a list of day values.
+# specifies both the day of the week and the week that the task should trigger. For example, 5#2 means the second Thursday of the month. If the day and week you specified overflows into the next month, then it will not trigger.
