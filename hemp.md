@@ -1,3 +1,5 @@
+http://www.quartz-scheduler.org/documentation/quartz-2.x/tutorials/crontrigger.html
+
 The simple rules that need to be followed to annotate a method with @Scheduled are:
 a method should have void return type
 a method should not accept any parameters
