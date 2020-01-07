@@ -1,3 +1,15 @@
+
+Cron expression for spring scheduler
+https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/scheduling/support/CronSequenceGenerator.html
+Spring cron expression consists of six fields (order of fields is matter):
+
+1.	<second>  <minute>  <hour>  <day-of-month>  <month>  <day-of-week>
+http://docwiki.embarcadero.com/Connect/en/Writing_a_CRON_Expression
+
+
+
+
+
 http://www.quartz-scheduler.org/documentation/quartz-2.x/tutorials/crontrigger.html
 
 The simple rules that need to be followed to annotate a method with @Scheduled are:
